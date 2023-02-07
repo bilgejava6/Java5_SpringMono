@@ -39,4 +39,17 @@ public interface IMusteriRepository extends JpaRepository<Musteri,Long> {
      */
     List<Musteri> findAllByAdAndAdres(String bisey,String baskabisey);
 
+    /**
+     * HAngi yaş grubunun hangi ürüleri daha fazla satın aldığını merak ediyorsunuz.
+     * örn: 40 yaş üzeri müşterilerin listesi.
+     *
+     */
+    List<Musteri> findAllByYasGreaterThan(Integer yas); // yas>?
+    List<Musteri> findAllByYasGreaterThanEqual(Integer yas); // yas>=?
+
+    /**
+     * Belli bir harfin ya da kelimenin aranması  LIKE, ILIKE
+     */
+    List<Musteri> findAllByAdLike(String ad);
+
 }

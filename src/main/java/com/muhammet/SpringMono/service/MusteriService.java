@@ -59,5 +59,8 @@ public class MusteriService {
         return repository.findAllByAdAndAdres(ad,adres);
     }
 
+    public List<Musteri> findAllByAdLike(String ad){
+        return repository.findAllByAdLike(ad);
+    }
 
 }

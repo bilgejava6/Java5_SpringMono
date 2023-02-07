@@ -17,6 +17,7 @@ public class Musteri {
     Long id;
     String ad;
     String adres;
+    Integer yas;
     String telefon;
 
 }

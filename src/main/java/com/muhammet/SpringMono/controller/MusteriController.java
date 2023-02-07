@@ -60,4 +60,13 @@ public class MusteriController {
         return ResponseEntity.ok(musteriService.adVeAdreseGoreGetir(ad,adres));
     }
 
+    /**
+     * select * from tblmusteri where ad like '%ad' - 'a%'
+     * @param ad
+     * @return
+     */
+    @GetMapping("/findallbyadlike")
+    public ResponseEntity<List<Musteri>> findAllByStartwithAd(String ad){
+        return ResponseEntity.ok(musteriService.findAllByAdLike(ad+"%"));
+    }
 }
