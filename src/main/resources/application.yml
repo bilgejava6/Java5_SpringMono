@@ -2,7 +2,7 @@
 # : tan sonra mutlaka boşluk olmalıdır.
 # alt bileşenler bir tab içte tanımlanır.
 server:
-  port: 80
+  port: 8080
 
 spring:
   datasource:

@@ -117,7 +117,7 @@ public interface IMusteriRepository extends JpaRepository<Musteri,Long> {
      * Ahmet -> Tbl("ahmet") false
      */
     // List<Musteri> findAllByAdAndAdres(String ad,String adres);
-    List<Musteri> findAllByAdIgnoreCaseAndAdresIgroneCase(String ad,String adres);
+    List<Musteri> findAllByAdIgnoreCaseAndAdresIgnoreCase(String ad,String adres);
 
     /**
      * Belli isimlerin listesini çekelim.
