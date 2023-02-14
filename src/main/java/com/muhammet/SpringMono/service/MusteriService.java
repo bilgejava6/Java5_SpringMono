@@ -2,6 +2,7 @@ package com.muhammet.SpringMono.service;
 
 import com.muhammet.SpringMono.repository.IMusteriRepository;
 import com.muhammet.SpringMono.repository.entity.Musteri;
+import com.muhammet.SpringMono.utility.ServiceManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,43 +10,32 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MusteriService {
-
-    @Autowired
-    private IMusteriRepository repository;
-
-    public void save(Musteri musteri){
-        System.out.println("Müşteri Service SAVE ÇAlıştı");
-        repository.save(musteri);
-    }
-
-    public void saveAll(List<Musteri> musteriList){
-        repository.saveAll(musteriList);
-    }
+public class MusteriService  extends ServiceManager<Musteri,Long> {
 
     /**
-     * Update için özellikle bir update komutu yoktur. Eğer Entity içinde ID bilgisi
-     * bulunuyor ise, ilgili id kaydı için entity içindeki yeni değerler değiştirilir.
-     * @param musteri
+     * int sayi = 5;
+     * Urun urun; // değişken tanımlama
+     * urun = new Urun(); // Yeni nesne oluşturulur ve referansı değişkene atanır.
+     *
      */
-    public void update(Musteri musteri){
-        repository.save(musteri);
-    }
-    public void delete(Musteri musteri){
-        repository.delete(musteri);
+    /**
+     * Repository nin enjekte edilme yöntemleri
+     * 1- Field Injection -> @Autowired
+     */
+    //@Autowired
+    //private IMusteriRepository repository;
+
+    /**
+     * 2- Constructor Injeciton
+     *
+     */
+    private final IMusteriRepository repository;
+
+    public MusteriService(IMusteriRepository repository){
+        super(repository);
+        this.repository = repository;
     }
 
-    public void deleteById(Long id){
-        repository.deleteById(id);
-    }
-
-    public List<Musteri> findAll(){
-        return repository.findAll();
-    }
-
-    public Optional<Musteri> findById(Long id){
-        return repository.findById(id);
-    }
 
     public boolean isExist(Long id){
         return repository.existsById(id);
