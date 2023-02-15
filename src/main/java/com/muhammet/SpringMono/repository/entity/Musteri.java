@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
 
 @Data
+@EqualsAndHashCode(callSuper=false)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor

@@ -12,13 +12,13 @@ import javax.persistence.*;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "tblurun")
-public class Urun  extends BaseEntity{
+@Table(name = "tbluser")
+public class User extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String ad;
-    Double fiyat;
-    String barkod;
-
+    String username;
+    String password;
+    String email;
+    String avatar;
 }
