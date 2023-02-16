@@ -10,5 +10,6 @@ import lombok.*;
 public class RegisterRequestDto {
     String username;
     String password;
+    String repassword;
     String email;
 }
