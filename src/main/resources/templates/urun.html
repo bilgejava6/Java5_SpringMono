@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -12,7 +12,9 @@
     <div class="contanier">
         <!-- Header Alanı başlık kısmı burada olacak       -->
         <div class="row text-center text-success">
-            <h1 class="title-center">ÜRÜN İŞLEMLERİ SAYFASI</h1>
+            <h1 class="title-center">
+                <label th:text="${model.title}"></label>
+            </h1>
         </div>
         <!-- Header END      -->
         <!-- Body Alanımız       -->
@@ -21,17 +23,8 @@
             <!--  Menü Alanı           -->
             <div class="col-md-2">
                 <ul class="navbar-nav navbar-info bg-info">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Ürün Ekleme</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#">Ürün Listeleme</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#">Ürün Stok Takip</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#">Firma Tanımlama</a>
+                    <li class="nav-item" th:each="menu : ${model.menulistesi}">
+                        <a class="nav-link" href="#" th:text="${menu}"></a>
                     </li>
 
                 </ul>
@@ -99,24 +92,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>00001</td>
-                            <td>Şeker</td>
-                            <td>1.250₺</td>
-                            <td>01154400144220</td>
-                            <td>18</td>
-                            <td>
-                                <img src="/img/bosurun.PNG" alt="Ürün resmi" width="50px" height="50px">
-                            </td>
-                            <td>
-                                <a href="#" class="btn btn-primary">
-                                    Düzenle
-                                </a>
-                                <a href="#" class="btn btn-danger">
-                                    Sil
-                                </a>
-                            </td>
-                        </tr>
+                            <tr th:each="urun : ${model.urunlistesi}">
+                                <td><label th:text="${urun.id}"/></td>
+                                <td><label th:text="${urun.ad}"/></td>
+                                <td><label th:text="${urun.fiyat}"/></td>
+                                <td><label th:text="${urun.kdv}"/></td>
+                                <td><label th:text="${urun.barkod}"/></td>
+                                <td>
+                                    <img src="/img/bosurun.PNG" alt="Ürün resmi" width="50px" height="50px">
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-primary">
+                                        Düzenle
+                                    </a>
+                                    <a href="#" class="btn btn-danger">
+                                        Sil
+                                    </a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
