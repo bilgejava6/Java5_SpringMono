@@ -39,4 +39,17 @@ public class UrunMvcController {
         return new ModelAndView("redirect:index");
     }
 
+    @PostMapping(DELETE)
+    public ModelAndView delete(Long id){
+        System.out.println("Silme işlemi çalıştı silinen id ...: "+ id);
+        try{
+            if(id !=null && id>0)
+                urunService.deleteById(id);
+        }catch (Exception exception){
+            System.out.println("hata oluştu...: "+ exception.toString());
+        }
+
+        return new ModelAndView("redirect:index");
+    }
+
 }
