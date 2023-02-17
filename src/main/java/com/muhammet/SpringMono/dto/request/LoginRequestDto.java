@@ -1,5 +1,6 @@
 package com.muhammet.SpringMono.dto.request;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 @AllArgsConstructor

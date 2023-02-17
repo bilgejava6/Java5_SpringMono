@@ -85,4 +85,12 @@ public class UserMvcController {
         return model;
     }
 
+    @GetMapping(INDEX)
+    public ModelAndView index(){
+        ModelAndView model = new ModelAndView();
+        model.setViewName("index");
+        return model;
+    }
+
+
 }
