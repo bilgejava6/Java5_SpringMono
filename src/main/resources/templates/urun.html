@@ -41,42 +41,47 @@
             <div class="col-md-8">
                 <!-- Input Alanı               -->
                 <div class="row">
-                    <form action="" method="post"></form>
-                    <div class="col-md-8">
-                        <div class="mb3">
-                            <label for="id" class="form-label">Id</label>
-                            <input type="text" class="form-control" id="id" name="id">
+                    <form action="save" method="post">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="mb3">
+                                    <label for="id" class="form-label">Id</label>
+                                    <input type="text" class="form-control" id="id" name="id">
+                                </div>
+                                <div class="mb3">
+                                    <label for="ad" class="form-label">Ürün Adı</label>
+                                    <input type="text" class="form-control" id="ad" name="ad" required>
+                                </div>
+                                <div class="mb3">
+                                    <label for="fiyat" class="form-label">Ürün Fiyatı</label>
+                                    <input type="text" class="form-control" id="fiyat" name="fiyat" required>
+                                </div>
+                                <div class="mb3">
+                                    <label for="barkod" class="form-label">Barkod</label>
+                                    <input type="text" class="form-control" id="barkod" name="barkod" required>
+                                </div>
+                                <div class="mb3">
+                                    <label for="id" class="form-label">KDV</label>
+                                    <select name="kdv" id="kdv" class="form-select" required>
+                                        <option>SEÇİNİZ</option>
+                                        <option value="1">%1</option>
+                                        <option value="3">%3</option>
+                                        <option value="5">%5</option>
+                                        <option value="8">%8</option>
+                                        <option value="18">%18</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img class="mt-5" src="/img/blank.jpg" alt="Ürün resmi burada olacak" width="300" height="300">
+                            </div>
+                            <div class="col-md-12 d-grid mt-2">
+                                <button type="submit" class="btn btn-primary">K A Y D E T</button>
+                            </div>
                         </div>
-                        <div class="mb3">
-                            <label for="ad" class="form-label">Ürün Adı</label>
-                            <input type="text" class="form-control" id="ad" name="ad" required>
-                        </div>
-                        <div class="mb3">
-                            <label for="fiyat" class="form-label">Ürün Fiyatı</label>
-                            <input type="text" class="form-control" id="fiyat" name="fiyat" required>
-                        </div>
-                        <div class="mb3">
-                            <label for="barkod" class="form-label">Barkod</label>
-                            <input type="text" class="form-control" id="barkod" name="barkod" required>
-                        </div>
-                        <div class="mb3">
-                            <label for="id" class="form-label">KDV</label>
-                            <select name="kdv" id="kdv" class="form-select" required>
-                                <option>SEÇİNİZ</option>
-                                <option value="1">%1</option>
-                                <option value="3">%3</option>
-                                <option value="5">%5</option>
-                                <option value="8">%8</option>
-                                <option value="18">%18</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <img class="mt-5" src="/img/blank.jpg" alt="Ürün resmi burada olacak" width="300" height="300">
-                    </div>
-                    <div class="col-md-12 d-grid mt-2">
-                        <button class="btn btn-primary">K A Y D E T</button>
-                    </div>
+
+                    </form>
+
                 </div>
                 <!-- Input END                -->
                 <!-- Tablo Alanı               -->

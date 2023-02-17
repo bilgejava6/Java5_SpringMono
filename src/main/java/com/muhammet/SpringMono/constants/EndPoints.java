@@ -27,6 +27,7 @@ public class EndPoints {
 
 
     public static final String MVCUSER = MVC+"/user";
+    public static final String MVCURUN = MVC+"/urun";
 
 
 
