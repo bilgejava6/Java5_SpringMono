@@ -1,6 +1,7 @@
 package com.muhammet.SpringMono.mvccontroller;
 
 import com.muhammet.SpringMono.dto.request.UrunSaveRequestDto;
+import com.muhammet.SpringMono.dto.request.UrunUpdateRequestDto;
 import com.muhammet.SpringMono.mvccontroller.models.UrunIndexModel;
 import com.muhammet.SpringMono.service.UrunService;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
+import java.net.URI;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 
 import static com.muhammet.SpringMono.constants.EndPoints.*;
@@ -34,7 +41,16 @@ public class UrunMvcController {
 
     // http://localhost:8080/v1/dev/urun/save
     @PostMapping(SAVE)
-    public ModelAndView save(UrunSaveRequestDto dto){
+    public ModelAndView save(UrunSaveRequestDto dto) throws IOException {
+        /**
+         * NOT!!!
+         * sunucuya iletilen dosyalar sunucunun kendisinde tutulabilir. Tüm
+         * resim ve dosyaarl static klasöründe kulanılabilir ve ulaşılabilir.
+         * Çok tavsiye edilen bir yöntem değildir. Bunun yerine
+         * bulut sistemlerde yada kendi fileserver sisteminizde bu dosyaları
+         * barındırmanız önerilir.
+         */
+        //Files.copy(dto.getProfileimg().getInputStream(), Path.of("d:\\resim.jpg"));
         urunService.save(dto);
         return new ModelAndView("redirect:index");
     }
@@ -49,6 +65,12 @@ public class UrunMvcController {
             System.out.println("hata oluştu...: "+ exception.toString());
         }
 
+        return new ModelAndView("redirect:index");
+    }
+
+    @PostMapping(UPDATE)
+    public ModelAndView update(UrunUpdateRequestDto dto){
+        urunService.update(dto);
         return new ModelAndView("redirect:index");
     }
 
