@@ -30,6 +30,16 @@ public class MusteriController {
     @Autowired
     MusteriService musteriService;
 
+    @GetMapping("/error")
+    public ResponseEntity<String> testError(){
+        int i=0;
+        if(i==0)
+            throw new IllegalArgumentException("Çok Fena Hata oluştu");
+        return ResponseEntity.ok("Hata Sayfası");
+    }
+
+
+
     /**
      * http://localhost/musteri/save
      * Get -> bir sayfaya erişme ve ondan bilgi alma isteğidir. özel bir gereksinimi yoktur.
@@ -45,6 +55,7 @@ public class MusteriController {
                 .adres(adres)
                 .telefon(telefon)
                 .build();
+
         musteriService.save(musteri);
     }
 
